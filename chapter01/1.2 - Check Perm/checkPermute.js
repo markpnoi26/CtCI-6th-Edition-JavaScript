@@ -1,5 +1,26 @@
 var checkPermute = function(stringOne, stringTwo) {
+  let obj = {}
+  for (let el of stringOne) {
+    if (obj[el]) {
+      obj[el]++
+    } else {
+      obj[el] = 1
+    }
+  }
 
+  for (let el of stringTwo) {
+    if (obj[el]) {
+      obj[el]++
+    } else {
+      return false
+    }
+  }
+
+  for (let key in obj) {
+    if (obj[key]%2 !== 0) return false
+  }
+  
+  return true
 };
 
 // Tests

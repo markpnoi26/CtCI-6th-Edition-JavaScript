@@ -1,7 +1,31 @@
 var rotateMatrix = function(matrix) {
-
-
+    const maxRowMtx = matrix.length
+    const maxColMtx = matrix[0].length
+    // rotate in place means we have to keep track of first item
+    rotateCorners(matrix)
+    
 };
+
+var rotateCorners = function(matrix) {
+    // 00 -> 0n -> nn -> n0
+    // 1,1 -> 1,n-1 -> n-1,n-1 -> n-1,1
+    let diagMax = Math.ceil(matrix.length/2)
+    let max = matrix.length-1
+    for (let i=0; i<diagMax; i++) {
+        let temp = matrix[i][i]
+        matrix[i][i] = matrix[max-i][i]
+        matrix[max-i][i] = matrix[max-i][max-i]
+        matrix[max-i][max-i] = matrix[i][max-i]
+        matrix[i][max-i] = temp
+    }
+    return matrix
+}
+
+var rotateEdge = function(matrix) {
+    
+    // rotate edges
+    return matrix
+}
 
 
 /* TEST */
@@ -25,6 +49,30 @@ console.log(testMatrix[0]);
 console.log(testMatrix[1]);
 console.log(testMatrix[2]);
 console.log(testMatrix[3]);
+
+var testMatrix2 = [
+    [1, 2, 3, 4, 5],
+    [0, 1, 2, 3, 8],
+    [0, 0, 1, 2, 9],
+    [1, 0, 0, 1, 7],
+    [3, 3, 3, 3, 3]
+];
+
+console.log('before:');
+console.log(testMatrix2[0]);
+console.log(testMatrix2[1]);
+console.log(testMatrix2[2]);
+console.log(testMatrix2[3]);
+console.log(testMatrix2[4]);
+
+rotateMatrix(testMatrix2);
+
+console.log('after:');
+console.log(testMatrix2[0]);
+console.log(testMatrix2[1]);
+console.log(testMatrix2[2]);
+console.log(testMatrix2[3]);
+console.log(testMatrix2[4]);
 
 /*
 var edge = n - 1;

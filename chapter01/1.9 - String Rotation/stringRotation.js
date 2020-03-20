@@ -1,20 +1,3 @@
-// var stringRotation = function(string1, string2) {
-//     let counter = 0
-//     let currStr = string1
-
-//     while (counter !== string1.length) {
-//         // rotate string 
-//         // compare to string 2
-//         // can only iterate the numer of times characters in string
-//         currStr = currStr.slice(1) + currStr[0]
-//         console.log(currStr, string2)
-//         if (currStr === string2) return true
-//         counter++
-//     }
-
-//     return false
-// };
-
 var stringRotation = function(string1, string2) {
     let counter = 0
     let currStr = string1
@@ -31,6 +14,7 @@ var stringRotation = function(string1, string2) {
 
     return false
 };
+
 
 // Approaches:
 // a) sorting chars before comparing -> know if it is permutation but not know if it is in the right order

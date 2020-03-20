@@ -1,31 +1,22 @@
 var rotateMatrix = function(matrix) {
-    const maxRowMtx = matrix.length
-    const maxColMtx = matrix[0].length
     // rotate in place means we have to keep track of first item
-    rotateCorners(matrix)
-    
-};
-
-var rotateCorners = function(matrix) {
     // 00 -> 0n -> nn -> n0
     // 1,1 -> 1,n-1 -> n-1,n-1 -> n-1,1
     let diagMax = Math.ceil(matrix.length/2)
     let max = matrix.length-1
     for (let i=0; i<diagMax; i++) {
-        let temp = matrix[i][i]
-        matrix[i][i] = matrix[max-i][i]
-        matrix[max-i][i] = matrix[max-i][max-i]
-        matrix[max-i][max-i] = matrix[i][max-i]
-        matrix[i][max-i] = temp
+        let jMax = max-i
+        for (let j=i; j< jMax; j++ ) {
+            let temp = matrix[i][j]
+            matrix[i][j] = matrix[max-j][i]
+            matrix[max-j][i] = matrix[max-i][max-j]
+            matrix[max-i][max-j] = matrix[j][max-i]
+            matrix[j][max-i] = temp
+        }
     }
     return matrix
-}
-
-var rotateEdge = function(matrix) {
     
-    // rotate edges
-    return matrix
-}
+};
 
 
 /* TEST */

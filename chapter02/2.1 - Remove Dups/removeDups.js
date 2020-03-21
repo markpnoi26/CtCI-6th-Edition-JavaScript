@@ -5,16 +5,6 @@ var LinkedList = function(value) {
 };
 
 /* FUNCTIONS */
-var checkDups = function(head, node) {
-  var currNode = head;
-  while (currNode !== node) {
-    if (currNode.value === node.value) {
-      return true;
-    }
-    currNode = currNode.next;
-  }
-  return false;
-};
 
 var printLinkedList = function(head) {
   var node = head;
@@ -27,15 +17,7 @@ var printLinkedList = function(head) {
 };
 
 var removeDups = function(head) {
-  var node = head;
-  while (node !== null) {
-    if (node.next !== null && checkDups(head, node.next)) {
-      node.next = node.next.next;
-    } else {
-      node = node.next;
-    }
-  }
-  return head;
+  
 };
 
 /* TESTS */

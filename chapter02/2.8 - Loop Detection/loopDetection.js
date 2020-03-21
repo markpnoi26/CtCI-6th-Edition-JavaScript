@@ -1,22 +1,7 @@
 var LinkedList = require('./../util/LinkedList');
 
 var loopDetection = (head) => {
-  var hare = head;
-  var tortoise = head;
-  while (hare !== null) {
-    tortoise = tortoise.next;
-    hare = hare.next;
-    if (hare === tortoise && hare !== head.next) {
-      return true;
-    }
-    if (hare !== null) {
-      hare = hare.next;
-      if (hare === tortoise) {
-        return true;
-      }
-    }
-  }
-  return false;
+  
 };
 
 /* TEST */
